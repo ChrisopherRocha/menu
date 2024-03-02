@@ -8,3 +8,6 @@ i want to get all of the categories but without doing too much work
 i want to get only the unique categories
 
 set Object()
+
+
+filter items is lesson 200

@@ -12,12 +12,21 @@ const allCategories = ['all', ...new Set(menu.map((item) => item.category))]
 function App() {
   const [menuItems, setMenuItems] = useState(menu)
   const [category, setCategory] = useState(allCategories)
-  console.log(category)
+
+  const filterItems = (category) => {
+    if (category === 'all') {
+      setMenuItems(menu)
+      return;
+    }
+    const newItems = menu.filter((item) => item.category === category)
+    setMenuItems(newItems)
+  }
+
   return (
     <main>
       <section className='menu'>
         <Title text="Our Title" />
-        <Categories category={category} />
+        <Categories category={category} filterItems={filterItems} />
         <Menu items={menuItems} />
       </section>
     </main>
